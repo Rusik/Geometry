@@ -1,7 +1,7 @@
 Orthogonal range searching with kd-tree
 =======================================
 
-####File format:####
+####File format####
 	n
 	(x, y)
 	(x, y)
