@@ -219,7 +219,7 @@ public class Demo extends JApplet {
                 }
                 
             } catch (IOException ex) {
-                Logger.getLogger(Demo.class.getName()).log(Level.SEVERE, null, ex);
+                System.err.println(ex);
             }
         }
 
