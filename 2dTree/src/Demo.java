@@ -6,10 +6,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.regex.MatchResult;
 import javax.swing.*;
 
@@ -52,6 +51,7 @@ public class Demo extends JApplet {
         Tree2d tree = new Tree2d(points);
 //        System.out.println(tree);
         setHighlightedPoints(tree.findPoints(getRectangle()));
+//        System.out.println(tree.findPointsNumber(getRectangle()));
         repaint();
     }
 
@@ -174,8 +174,8 @@ public class Demo extends JApplet {
                 f.setVisible(true);
             }
         } else {
+                        
             BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-
             try {
                 
                 List<Point> points = new ArrayList<Point>();
@@ -215,7 +215,7 @@ public class Demo extends JApplet {
 
                 Tree2d tree = new Tree2d(points);
                 for (Rectangle rectangle : rectangles) {
-                    System.out.println(tree.findPoints(rectangle).size());
+                    System.out.println(tree.findPointsNumber(rectangle));
                 }
                 
             } catch (IOException ex) {

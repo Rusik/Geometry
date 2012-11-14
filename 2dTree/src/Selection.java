@@ -165,27 +165,27 @@ public class Selection {
     public static int select(List<Integer> list, int index) {
 
         int medianOfMedians = medianOfMedians(list);
-        
         int q = medianOfMedians;
-        int qIndex = list.indexOf(q);
-        List<Integer> partitionList = new ArrayList<Integer>();
-        partitionList.add(q);
-
+        List<Integer> partitionList = new ArrayList(list);
         int beforeRank = 0;
 
-        for (int i = 0; i < list.size(); i++) {
-            if (i == qIndex) {
-                continue;
+        int i = 0;
+        int j = partitionList.size() - 1;
+        do {            
+            while (partitionList.get(i) < q) ++i;
+            while (partitionList.get(j) > q) --j;
+            if (i <= j) {
+                int temp = partitionList.get(i);
+                partitionList.set(i, partitionList.get(j));
+                partitionList.set(j, temp);
+                if (partitionList.get(i).equals(partitionList.get(j))) {
+                    j--;
+                }
             }
-            Integer value = list.get(i);
-            if (value < q) {
-                partitionList.add(0, value);
-                beforeRank++;
-            } else {
-                partitionList.add(partitionList.size(), value);
-            }
-        }        
-
+        } while (i < j);
+        
+        beforeRank = partitionList.indexOf(q);
+        
         if (beforeRank > index) {
             return select(partitionList.subList(0, beforeRank), index);
         } else if (beforeRank < index) {
