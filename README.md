@@ -21,4 +21,4 @@ Orthogonal range searching with kd-tree
 			x1          x2  
 
 ####Run wit GUI####
-	>java -jar 2dtree.jar -gui
+	> java -jar 2dtree.jar -gui
